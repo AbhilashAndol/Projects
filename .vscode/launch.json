@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run temporary",
+      "name": "Run test",
       "runtimeExecutable": "cds",
       "killBehavior": "polite",
       "request": "launch",
@@ -14,10 +14,10 @@
       "internalConsoleOptions": "openOnSessionStart",
       "type": "pwa-node",
       "cwd": "${workspaceFolder}",
-      "preLaunchTask": "PreLaunchTask for Run temporary",
+      "preLaunchTask": "PreLaunchTask for Run test",
       "envFile": "${workspaceFolder}/env/.env1",
       "env": {
-        "run.config": "{\"handlerId\":\"lcap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/temporary\\\",\\\"profileName\\\":\\\"\\\"}\"}"
+        "run.config": "{\"handlerId\":\"lcap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/test\\\",\\\"profileName\\\":\\\"\\\"}\"}"
       }
     }
   ]

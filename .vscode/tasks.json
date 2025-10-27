@@ -40,7 +40,7 @@
       }
     },
     {
-      "label": "PreLaunchTask for Run temporary",
+      "label": "PreLaunchTask for Run test",
       "type": "process",
       "command": "npx",
       "args": [
@@ -56,12 +56,12 @@
     },
     {
       "type": "dpt.ptdeploy",
-      "label": "Deploy temporary",
+      "label": "Deploy test",
       "taskType": "Deploy"
     },
     {
       "type": "dpt.ptdeploy",
-      "label": "Enable Discovery and Deploy temporary",
+      "label": "Enable Discovery and Deploy test",
       "taskType": "Deploy",
       "enableDiscovery": "true"
     }
