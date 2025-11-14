@@ -1,4 +1,4 @@
-namespace sapit.acoe.gbaas;
+namespace practice.capm;
 
 using { cuid, managed, User} from '@sap/cds/common';
 
