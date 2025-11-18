@@ -1,0 +1,177 @@
+{
+  "_version": "1.60.0",
+  "sap.app": {
+    "id": "capmproject.assessments",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.19.5",
+      "toolsId": "77e55c92-99d4-4722-a669-889df341a4a6"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/service/AssessmentForms/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "capmprojectassessments-display": {
+          "semanticObject": "capmprojectassessments",
+          "action": "display",
+          "title": "{{capmprojectassessments-display.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.32",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "capmproject.assessments.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "AssessmentsList",
+          "target": "AssessmentsList"
+        },
+        {
+          "pattern": "Assessments({key}):?query:",
+          "name": "AssessmentsObjectPage",
+          "target": "AssessmentsObjectPage"
+        },
+        {
+          "pattern": "Assessments({key})/forms({key2}):?query:",
+          "name": "FormsObjectPage",
+          "target": "FormsObjectPage"
+        }
+      ],
+      "targets": {
+        "AssessmentsList": {
+          "type": "Component",
+          "id": "AssessmentsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Assessments",
+              "variantManagement": "Page",
+              "navigation": {
+                "Assessments": {
+                  "detail": {
+                    "route": "AssessmentsObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "AssessmentsObjectPage": {
+          "type": "Component",
+          "id": "AssessmentsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Assessments",
+              "navigation": {
+                "forms": {
+                  "detail": {
+                    "route": "FormsObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "FormsObjectPage": {
+          "type": "Component",
+          "id": "FormsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Assessments/forms"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
