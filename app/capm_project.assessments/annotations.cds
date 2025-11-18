@@ -50,6 +50,12 @@ annotate service.Assessments with @(
             Label : 'General Information',
             Target : '@UI.FieldGroup#GeneratedGroup',
         },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Submissions',
+            ID : 'Submissions',
+            Target : 'forms/@UI.LineItem#Submissions',
+        },
     ],
     UI.LineItem : [
         {
@@ -77,5 +83,34 @@ annotate service.Assessments with @(
             Value : useCaseOwner,
         },
     ],
+);
+
+annotate service.Forms with @(
+    UI.LineItem #Submissions : [
+        {
+            $Type : 'UI.DataField',
+            Value : ID,
+            Label : 'ID',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : formType,
+            Label : 'formType',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : formVersion,
+            Label : 'formVersion',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : status_code,
+            Label : 'status_code',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : modifiedBy,
+        },
+    ]
 );
 

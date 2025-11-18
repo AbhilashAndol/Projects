@@ -105,11 +105,6 @@
           "pattern": "Assessments({key}):?query:",
           "name": "AssessmentsObjectPage",
           "target": "AssessmentsObjectPage"
-        },
-        {
-          "pattern": "Assessments({key})/forms({key2}):?query:",
-          "name": "FormsObjectPage",
-          "target": "FormsObjectPage"
         }
       ],
       "targets": {
@@ -146,24 +141,19 @@
             "settings": {
               "editableHeaderContent": false,
               "contextPath": "/Assessments",
-              "navigation": {
-                "forms": {
-                  "detail": {
-                    "route": "FormsObjectPage"
+              "controlConfiguration": {
+                "forms/@com.sap.vocabularies.UI.v1.LineItem#Submissions": {
+                  "actions": {
+                    "Actions": {
+                      "press": "capmproject.assessments.ext.controller.Actions.Employee",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Add Details"
+                    }
                   }
                 }
               }
-            }
-          }
-        },
-        "FormsObjectPage": {
-          "type": "Component",
-          "id": "FormsObjectPage",
-          "name": "sap.fe.templates.ObjectPage",
-          "options": {
-            "settings": {
-              "editableHeaderContent": false,
-              "contextPath": "/Assessments/forms"
             }
           }
         }
